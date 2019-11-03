@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include <arpa/inet.h>
 
 typedef struct Student{
