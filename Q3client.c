@@ -5,7 +5,7 @@
 
 typedef struct Student{
     int roll;
-    // char name[50];
+    char name[50];
     int marks[5];
 } Student;
 
@@ -37,8 +37,8 @@ int main(){
         recv(sockfd, &S, sizeof(S), 0);
         printf("\nFound !");
         printf("\nRoll No. : %d\n", S.roll);
-        // printf("\nName : %s", S.name);
-        printf("Marks : \n");
+        printf("\nName : %s", S.name);
+        printf("\nMarks : ");
         for(int i = 0; i < 5; i++)
             printf("%d\t", S.marks[i]);
         printf("\n");

@@ -6,21 +6,26 @@
 
 typedef struct Student{
     int roll;
-    // char name[50];
+    char name[50];
     int marks[5];
 } Student;
 
 int main(){
 
-    //storing one record in server
-    Student S;
-    printf("\nEnter roll to store : ");
-    scanf("%d", &S.roll);
-    // printf("\nEnter name : ");
-    // fgets(S.name, 50, stdin);
-    printf("\nEnter 5 marks : \n");
-    for(int i = 0; i < 5; i++){
-        scanf("%d", &S.marks[i]);
+    int count;
+    printf("\nEnter no. of records of students to store in server : ");
+    scanf("%d", &count);
+    //storing 'count' no. of records in server
+    Student S[count];
+    for(int i = 0; i < count; i++){
+        printf("\n%d)", i + 1);
+        printf("\nEnter roll to store : ");
+        scanf("%d", &S[i].roll);
+        printf("\nEnter name : ");
+        scanf("%s[^ \n]", S[i].name);
+        printf("\nEnter 5 marks : \n");
+        for(int j = 0; j < 5; j++)
+            scanf("%d", &S[i].marks[j]);
     }
 
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -45,16 +50,19 @@ int main(){
 
     int roll_search, response;
     recv(fd1, &roll_search, sizeof(roll_search), 0);
-    if(roll_search == S.roll)
-    {
-        response = 1;
-        send(fd1, &response, sizeof(response), 0);
-    }
-    else
-        response = 0;
-    
+    int z;
+    for(z = 0; z < count; z++)
+        if(roll_search == S[z].roll)
+        {
+            response = 1;
+            send(fd1, &response, sizeof(response), 0);
+            break;
+        }
+        else
+            response = 0;
+        
     if(response == 1)
-        send(fd1, &S, sizeof(S), 0);
+        send(fd1, &S[z], sizeof(S[z]), 0);
     else
         exit(0);
 
