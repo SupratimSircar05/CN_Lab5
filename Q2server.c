@@ -1,5 +1,5 @@
+// server swaps the 2 nos. received from 2 different clients and returns swapped values
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 

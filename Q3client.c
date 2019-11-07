@@ -1,5 +1,5 @@
+// client requests for a particular student's records
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 

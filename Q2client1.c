@@ -1,5 +1,5 @@
+// client1 sends 1 no. to server to swap
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 

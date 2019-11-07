@@ -1,5 +1,5 @@
+// client sends 2 numbers to server
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
  

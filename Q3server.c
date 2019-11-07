@@ -1,5 +1,5 @@
+// server stores multiple records and returns record if match is found
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <stdlib.h>
 #include <arpa/inet.h>
